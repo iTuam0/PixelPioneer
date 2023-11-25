@@ -18,8 +18,8 @@ def main_window():
       label_1.pack(anchor="w")
 
       #Convas;
-      canvas_form = tk.Canvas(main_window, width="750", height="450", bd=1, relief="solid")
-      canvas_form.pack(anchor="w")
+      canvas_form = tk.Canvas(main_window, width="750", height="450", bd=1, relief="raised", highlightbackground="blue", highlightthickness=2)
+      canvas_form.pack(anchor="w", padx=5)
 
       #Create a url with the id from the camera;
       url = "http://192.168.1.127:4747/video"
@@ -59,7 +59,6 @@ def main_window():
 
       update()
       
-
       #End of main_form cycle;
       main_window.mainloop()
 #View;
