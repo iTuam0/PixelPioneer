@@ -19,8 +19,8 @@ def create_gui():
     canvas_form.pack(anchor="w", padx=5)
 
     # Button to start video streaming
-    button_start = tk.Button(main_window_instance, text="Start", command=start_video_flow)
-    button_start.pack()
+    button_start = tk.Button(main_window_instance, text="Start", width=25, height=4, command=start_video_flow)
+    button_start.place(x=790, y=20)
 
     # Status bar with information about the program
     status_bar = tk.Label(main_window_instance, bd=1, text=" The program is in beta mode. In general, it works, but there are drawbacks.", relief=tk.SUNKEN, anchor=tk.W, fg="blue")
@@ -32,6 +32,9 @@ def start_video_flow():
     global flow_pictures
     # Start video streaming if not already running
     if 'flow_pictures' not in globals() or not flow_pictures.isOpened():
+        m_faceDetection = mp.solutions.face_detection
+        m_draw = mp.solutions.drawing_utils
+        face_detection = m_faceDetection.FaceDetection()
         flow_pictures = cv2.VideoCapture(url)
         update()
 
